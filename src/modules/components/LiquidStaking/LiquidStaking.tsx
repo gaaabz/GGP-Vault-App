@@ -37,7 +37,7 @@ import useTokenggAVAXContract from '@/hooks/contracts/tokenggAVAX'
 import useDeposit from '@/hooks/deposit'
 import useLiquidStakingData from '@/hooks/liquidStakingData'
 import useRedeem from '@/hooks/redeem'
-import useAvaxBalanceOfggAVAX from '@/hooks/useAvaxBalanceOfggAVAX'
+import useAvaxBalanceOfggAVAX from '@/hooks/useAvaxBalanceOfggAvax'
 import useCeres from '@/hooks/useCeres'
 import addToken from '@/utils/addToken'
 import { WEI_VALUE } from '@/utils/consts'
@@ -286,7 +286,7 @@ export const LiquidStaking: FunctionComponent = () => {
   }
 
   const displayButton = () => {
-    const buttonText = swapDirection ? 'Redeem GGP' : 'Deposit ggGGP'
+    const buttonText = swapDirection ? 'Redeem GGP' : 'Deposit GGP'
     const sufficientBalance = swapDirection
       ? ggAVAXBalance?.value.lt(amount)
       : balance?.value.lt(amount)
