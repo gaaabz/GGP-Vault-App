@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react'
 
-import { useRouter } from 'next/router'
 import { FaHammer, FaRegCompass } from 'react-icons/fa'
 import { LuArrowDownUp } from 'react-icons/lu'
 
@@ -14,7 +13,7 @@ export type SideItem = {
   icon: ReactNode
 }
 
-export type NavbarItemTitle = 'VALIDATE' | 'LIQUID STAKE' | 'GOGO PASS'
+export type NavbarItemTitle = 'VALIDATE'
 
 const validateSidebar = [
   {
@@ -40,12 +39,11 @@ const gogoSidebar = [
   },
 ]
 
-const sidebarMap: { [key in NavbarItemTitle]: SideItem[] } = {
+const sidebarMap: { [key in NavbarItemTitle]: any[] } = {
   VALIDATE: validateSidebar,
 }
 
 export function SidebarNavbar({ children }: { children: ReactNode }) {
-  const router = useRouter()
   const currentPath: NavbarItemTitle = 'VALIDATE'
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
