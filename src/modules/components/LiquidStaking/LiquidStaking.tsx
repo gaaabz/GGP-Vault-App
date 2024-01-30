@@ -61,7 +61,7 @@ const generateStatistics = (
       label: (
         <>
           Token Address
-          <Tooltip content="The address of the ggAVAX token" placement="right">
+          <Tooltip content="The address of the ggGGP token" placement="right">
             <Box as="span">
               <InfoCircleIcon className="ml-1" fill="grey.600" />
             </Box>
@@ -136,7 +136,7 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const { chain } = useNetwork()
 
-  const [swapDirection, setSwapDirection] = useState(true) // false for AVAX -> ggAVAX, true for ggAVAX -> AVAX
+  const [swapDirection, setSwapDirection] = useState(true) // false for AVAX -> ggAVAX, true for ggGGP -> AVAX
   const [amount, setAmount] = useState<BigNumber>(parseEther('0')) // stake value
   const [reward, setReward] = useState<BigNumber>(parseEther('0')) // reward value
 
@@ -168,7 +168,7 @@ export const LiquidStaking: FunctionComponent = () => {
     address: account,
   })
 
-  // ggAVAX balance
+  // ggGGP balance
   const { data: ggAVAXBalance } = useBalance({
     watch: true,
     address: account,
@@ -286,7 +286,7 @@ export const LiquidStaking: FunctionComponent = () => {
   }
 
   const displayButton = () => {
-    const buttonText = swapDirection ? 'Redeem ggAVAX' : 'Deposit AVAX'
+    const buttonText = swapDirection ? 'Redeem GGP' : 'Deposit ggGGP'
     const sufficientBalance = swapDirection
       ? ggAVAXBalance?.value.lt(amount)
       : balance?.value.lt(amount)
@@ -360,9 +360,9 @@ export const LiquidStaking: FunctionComponent = () => {
               <StakeStat
                 item={{
                   placement: 'top',
-                  name: 'ggAVAX Pool',
+                  name: 'ggGGP Pool',
                   tooltip: 'Balance available in the Liquidity Pool for swaps',
-                  stat: `${ggAVAXPool ? displayBN(ggAVAXPool.value) : '0.00'} ggAVAX`,
+                  stat: `${ggAVAXPool ? displayBN(ggAVAXPool.value) : '0.00'} ggGGP`,
                 }}
               />
             </div>
@@ -457,7 +457,7 @@ export const LiquidStaking: FunctionComponent = () => {
                   addToken(ggAVAXAddress, 'ggAVAX')
                 }}
               >
-                Add ggAVAX token to wallet
+                Add ggGGP token to wallet
               </Link>
             </div>
           )}

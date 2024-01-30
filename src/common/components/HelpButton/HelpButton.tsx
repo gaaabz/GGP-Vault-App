@@ -71,7 +71,7 @@ export default function HelpButton() {
           icon={<IoWalletSharp color="#FF2A29" />}
           onClick={() => handleAddToken(ggAVAXAddress, 'ggAVAX')}
         >
-          <span className="text-sm font-bold text-blue-900">Add ggAVAX to Wallet</span>
+          <span className="text-sm font-bold text-blue-900">Add ggGGP to Wallet</span>
         </MenuItem>
       </MenuList>
     </Menu>

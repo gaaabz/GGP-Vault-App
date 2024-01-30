@@ -32,7 +32,7 @@ export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token = 
         {token === 'AVAX' ? (
           <AVAXPillUnit value={null} />
         ) : (
-          <GGPPillUnit title="ggAVAX" value={null} />
+          <GGPPillUnit title="GGP" value={null} />
         )}
       </div>
       <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
