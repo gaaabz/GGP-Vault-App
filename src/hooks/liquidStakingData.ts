@@ -9,7 +9,7 @@ import useTokenggAVAXContract from '@/hooks/contracts/tokenggAVAX'
 const useLiquidStakingData = () => {
   const { abi: ggAVAXInterface, address: ggAVAXAddr } = useTokenggAVAXContract()
 
-  const { data: ggAvaxExchangeRate, isLoading: isExchangeRateLoading } = useExchangeRate()
+  const { data: ggAVAXExchangeRate, isLoading: isExchangeRateLoading } = useExchangeRate()
 
   const { data: totalStakedAVAX, isLoading: isStakingBalanceLoading } = useContractRead({
     address: ggAVAXAddr,
@@ -29,7 +29,7 @@ const useLiquidStakingData = () => {
   const isLoading = isExchangeRateLoading || isStakingBalanceLoading || isRewardsCycleLengthLoading
 
   return {
-    ggAvaxExchangeRate,
+    ggAVAXExchangeRate,
     isLoading,
     rewardsCycleLength,
     totalStakedAVAX,

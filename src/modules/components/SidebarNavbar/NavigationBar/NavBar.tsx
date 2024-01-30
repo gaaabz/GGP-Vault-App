@@ -48,7 +48,7 @@ export const NavBar = ({ navbarTitle, setNavbarTitle, setSidebarOpen }: Props) =
             {/* <NavItem
               href="/liquid-staking"
               icon={
-                <GGAvaxTokenIcon fill={navbarTitle === 'LIQUID STAKE' ? '#6255F1' : '#0D0959'} />
+                <ggAVAXTokenIcon fill={navbarTitle === 'LIQUID STAKE' ? '#6255F1' : '#0D0959'} />
               }
               navbarTitle={navbarTitle}
               setNavbarTitle={setNavbarTitle}

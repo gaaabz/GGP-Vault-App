@@ -37,7 +37,7 @@ import useTokenggAVAXContract from '@/hooks/contracts/tokenggAVAX'
 import useDeposit from '@/hooks/deposit'
 import useLiquidStakingData from '@/hooks/liquidStakingData'
 import useRedeem from '@/hooks/redeem'
-import useAvaxBalanceOfggAvax from '@/hooks/useAvaxBalanceOfggAvax'
+import useAvaxBalanceOfggAVAX from '@/hooks/useAvaxBalanceOfggAVAX'
 import useCeres from '@/hooks/useCeres'
 import addToken from '@/utils/addToken'
 import { WEI_VALUE } from '@/utils/consts'
@@ -136,13 +136,13 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const { chain } = useNetwork()
 
-  const [swapDirection, setSwapDirection] = useState(false) // false for AVAX -> ggAVAX, true for ggAVAX -> AVAX
+  const [swapDirection, setSwapDirection] = useState(true) // false for AVAX -> ggAVAX, true for ggAVAX -> AVAX
   const [amount, setAmount] = useState<BigNumber>(parseEther('0')) // stake value
   const [reward, setReward] = useState<BigNumber>(parseEther('0')) // reward value
 
   const { address: account, isConnected } = useAccount()
 
-  const { data: ggAvaxPool } = useAvaxBalanceOfggAvax()
+  const { data: ggAVAXPool } = useAvaxBalanceOfggAVAX()
 
   const { address: ggAVAXAddress } = useTokenggAVAXContract()
 
@@ -155,7 +155,7 @@ export const LiquidStaking: FunctionComponent = () => {
   }
 
   const {
-    ggAvaxExchangeRate,
+    ggAVAXExchangeRate,
     isLoading: isLoadingStats,
     rewardsCycleLength,
     stakerCount,
@@ -202,7 +202,7 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const statisticData = generateStatistics(
     apy,
-    (ggAvaxExchangeRate as BigNumberish) || 0,
+    (ggAVAXExchangeRate as BigNumberish) || 0,
     (totalStakedAVAX as BigNumberish) || 0,
     (stakerCount as BigNumberish) || 0,
     (rewardsCycleLength as unknown as number) * 1000,
@@ -262,25 +262,25 @@ export const LiquidStaking: FunctionComponent = () => {
 
   useEffect(() => {
     if (swapDirection) {
-      if (!ggAvaxExchangeRate) {
+      if (!ggAVAXExchangeRate) {
         setReward(parseEther('0'))
       } else {
-        const rewardAmount = amount.mul(WEI_VALUE).div(ggAvaxExchangeRate)
+        const rewardAmount = amount.mul(WEI_VALUE).div(ggAVAXExchangeRate)
         setReward(rewardAmount)
       }
     } else {
-      if (!ggAvaxExchangeRate) {
+      if (!ggAVAXExchangeRate) {
         setReward(parseEther('0'))
       } else {
-        const rewardAmount = amount.mul(ggAvaxExchangeRate).div(WEI_VALUE)
+        const rewardAmount = amount.mul(ggAVAXExchangeRate).div(WEI_VALUE)
         setReward(rewardAmount)
       }
     }
-  }, [amount, ggAvaxExchangeRate, swapDirection])
+  }, [amount, ggAVAXExchangeRate, swapDirection])
 
   let amountGreaterThanPool = false
-  if (ggAvaxPool) {
-    amountGreaterThanPool = amount.gt(ggAvaxPool.value)
+  if (ggAVAXPool) {
+    amountGreaterThanPool = amount.gt(ggAVAXPool.value)
   } else {
     amountGreaterThanPool = amount.gt(BigNumber.from('0'))
   }
@@ -360,9 +360,9 @@ export const LiquidStaking: FunctionComponent = () => {
               <StakeStat
                 item={{
                   placement: 'top',
-                  name: 'ggAvax Pool',
+                  name: 'ggAVAX Pool',
                   tooltip: 'Balance available in the Liquidity Pool for swaps',
-                  stat: `${ggAvaxPool ? displayBN(ggAvaxPool.value) : '0.00'} ggAVAX`,
+                  stat: `${ggAVAXPool ? displayBN(ggAVAXPool.value) : '0.00'} ggAVAX`,
                 }}
               />
             </div>

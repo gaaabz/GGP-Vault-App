@@ -1,4 +1,4 @@
-export default function GGAvaxTokenIcon({ fill = '#0D0959' }: { fill?: string }) {
+export default function ggAVAXTokenIcon({ fill = '#0D0959' }: { fill?: string }) {
   return (
     <svg fill="none" height="24" viewBox="0 0 22 20" width="24" xmlns="http://www.w3.org/2000/svg">
       <rect fill="white" height="11.912" width="11.912" x="4.63232" y="4.63184" />

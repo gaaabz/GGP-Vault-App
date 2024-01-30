@@ -4,7 +4,7 @@ import useTokenggAVAXContract from './contracts/tokenggAVAX'
 
 import { WAVAX_ADDR } from '@/constants/contractAddresses'
 
-function useAvaxBalanceOfggAvax() {
+function useAvaxBalanceOfggAVAX() {
   const { address: ggAVAXAddress } = useTokenggAVAXContract()
   const balance = useBalance({
     address: ggAVAXAddress,
@@ -13,4 +13,4 @@ function useAvaxBalanceOfggAvax() {
   return balance
 }
 
-export default useAvaxBalanceOfggAvax
+export default useAvaxBalanceOfggAVAX

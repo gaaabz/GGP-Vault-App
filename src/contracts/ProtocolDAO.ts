@@ -308,7 +308,7 @@ const ProtocolDAO = [
   },
   {
     inputs: [],
-    name: 'getTargetGGAVAXReserveRate',
+    name: 'getTargetggAVAXReserveRate',
     outputs: [
       {
         internalType: 'uint256',

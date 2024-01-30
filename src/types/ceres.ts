@@ -36,7 +36,7 @@ export type Ceres = {
   totalReleasedAssets: CeresObjNum
   stakingTotalAssets: CeresObjNum
   amountAvailableForStaking: CeresObjNum
-  ggavaxAvaxExchangeRate: CeresObjNum
+  ggAVAXAvaxExchangeRate: CeresObjNum
   stakerCount: CeresObjNum
   totalGGPStake: CeresObjNum
   rewardsEligibilityMinSeconds: CeresObjNum
@@ -51,7 +51,7 @@ export type Ceres = {
   expectedAVAXRewardRate: CeresObjNum
   maxCollateralizationRatio: CeresObjNum
   minCollateralizationRatio: CeresObjNum
-  targetGGAVAXReserveRate: CeresObjNum
+  targetggAVAXReserveRate: CeresObjNum
   ggpPriceInAVAX: CeresObjNum
   ggpPriceUpdateTime: CeresObjNum
   canStartRewardsCycle: CeresObjBool

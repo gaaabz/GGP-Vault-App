@@ -23,7 +23,7 @@ import { Button } from '@/common/components/Button'
 import { Title } from '@/common/components/Card'
 
 import avaxIcon from '/public/assets/img/token/avax.png'
-import ggavaxIcon from '/public/assets/img/token/gg-avax.svg'
+import ggAVAXIcon from '/public/assets/img/token/gg-avax.svg'
 
 import { Tooltip } from '@/common/components/Tooltip'
 
@@ -60,7 +60,7 @@ export const RoiComparisonModal: FunctionComponent<UnstakeModalProps> = ({ onClo
               <Text>Avalanche Validator Solo</Text>
             </Flex>
             <Flex align="center" gap="4" justify="center" p="6">
-              <Image alt="GGAvax" src={ggavaxIcon} width={24} />
+              <Image alt="ggAVAX" src={ggAVAXIcon} width={24} />
               <Text>GoGoPool Validator</Text>
             </Flex>
           </SimpleGrid>

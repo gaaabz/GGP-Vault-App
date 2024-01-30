@@ -14,7 +14,7 @@ import addToken from '@/utils/addToken'
 export default function HelpButton() {
   const toast = useToast()
   const { address: ggpAddress } = useTokenGGPContract()
-  const { address: ggAvaxAddress } = useTokenggAVAXContract()
+  const { address: ggAVAXAddress } = useTokenggAVAXContract()
 
   const handleAddToken = (address: HexString, tokenName: 'GGP' | 'ggAVAX') => {
     addToken(address, tokenName)
@@ -69,7 +69,7 @@ export default function HelpButton() {
         <Divider />
         <MenuItem
           icon={<IoWalletSharp color="#FF2A29" />}
-          onClick={() => handleAddToken(ggAvaxAddress, 'ggAVAX')}
+          onClick={() => handleAddToken(ggAVAXAddress, 'ggAVAX')}
         >
           <span className="text-sm font-bold text-blue-900">Add ggAVAX to Wallet</span>
         </MenuItem>
