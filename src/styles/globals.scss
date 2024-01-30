@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(/assets/fonts/Jost/Jost-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url(/assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url(/assets/fonts/Jost/Jost-Bold-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Domaine';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url(/assets/fonts/Domaine/domaine-display-medium.woff2) format('truetype');
+}
+
+@font-face {
+  font-family: 'Domaine';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url(/assets/fonts/Domaine/domaine-display-extrabold.woff2) format('truetype');
+}
+
+@layer base {
+  /** Typography **/
+  // i do not create the specific class for bold. to use the extrabold, add `font-bold` to the classname
+  .h1 {
+    @apply font-domaine text-[80px] leading-[88px];
+  }
+
+  .h2 {
+    @apply font-domaine text-[60px] leading-[66px];
+  }
+
+  .h3 {
+    @apply font-domaine text-[48px] leading-[52px];
+  }
+
+  .h4 {
+    @apply font-domaine text-[36px] leading-[40px];
+  }
+
+  .h5 {
+    @apply font-domaine text-[32px] leading-[40px];
+  }
+
+  .pxxl {
+    // temporary classname. do chime in if there is a better idea for this
+    // i do not create the specific class for italic. to use the italic, add `italic` to the classname
+    @apply font-jost text-[32px] leading-[40px];
+  }
+
+  .pxl {
+    @apply font-jost text-[24px] leading-[36px];
+  }
+
+  .pl {
+    @apply font-jost text-[18px] leading-[28px];
+  }
+
+  .p {
+    @apply font-jost text-[16px] leading-[24px];
+  }
+
+  .ps {
+    @apply font-jost text-[14px] leading-[22px];
+  }
+  /** ---------- **/
+}
+
+html {
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#__next,
+[data-rk]:not([class]) {
+  height: 100%;
+}
+
+.lds-dual-ring {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+.lds-dual-ring:after {
+  content: ' ';
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #000 transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
