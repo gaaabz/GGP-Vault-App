@@ -15,7 +15,7 @@ import { displayBN } from '@/utils/numberFormatter'
 
 interface Address {
   name: string
-  address: string
+  address: `0x${string}`
 }
 
 const addresses: Address[] = [
@@ -48,7 +48,7 @@ const Card: React.FC<{
   </Box>
 )
 
-const Manager: React.FC = () => {
+const Manager = () => {
   // Hooks for each address
   const highWater1 = useGetAVAXValidatingHighWater(addresses[0].address)
   const highWater2 = useGetAVAXValidatingHighWater(addresses[1].address)
