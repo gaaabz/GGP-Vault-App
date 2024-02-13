@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 
 import { useContractRead, useNetwork } from 'wagmi'
 
-import { storageAddresses } from '../constants/storageAddresses'
+import { storageAddresses, xGGPAddresses } from '../constants/storageAddresses'
 
 import Storage from '@/contracts/Storage'
 import { HexString } from '@/types/cryptoGenerics'
@@ -49,4 +49,11 @@ export const useGetAddress = (key: AllContracts, storageAddr?: string) => {
   })
 
   return resp
+}
+
+export const useVaultAddress = () => {
+  const { chain } = useNetwork()
+
+  const addr: HexString = xGGPAddresses[chain?.id]
+  return addr
 }

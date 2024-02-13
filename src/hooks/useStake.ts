@@ -180,7 +180,6 @@ export const useGetAVAXValidating = (stakerAddr: HexString, watch = true) => {
 // getAVAXValidatingHighWater
 export const useGetAVAXValidatingHighWater = (stakerAddr: HexString, watch = true) => {
   const { abi, address } = useStakingContract()
-  console.log({ address })
 
   const { data, error, isError, isLoading } = useContractRead({
     address,

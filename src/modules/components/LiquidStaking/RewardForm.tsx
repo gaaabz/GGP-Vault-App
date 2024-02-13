@@ -15,7 +15,7 @@ interface Props {
   token?: string
 }
 
-export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token = 'ggAVAX' }) => {
+export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token }) => {
   return (
     <>
       <div className="flex items-center justify-between">
@@ -29,11 +29,7 @@ export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token = 
           onChange={() => undefined}
           placeholder="0.0"
         />
-        {token === 'AVAX' ? (
-          <AVAXPillUnit value={null} />
-        ) : (
-          <GGPPillUnit title="GGP" value={null} />
-        )}
+        {token === 'GGP' ? <GGPPillUnit title="GGP" value={null} /> : <AVAXPillUnit value={null} />}
       </div>
       <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
       <FormLabel htmlFor="stake-avax-form" id="stake-avax" mb="1">

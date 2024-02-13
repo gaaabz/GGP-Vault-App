@@ -2,19 +2,7 @@
 import { BigNumber, BigNumberish } from 'ethers'
 import { FunctionComponent, useEffect, useState } from 'react'
 
-import {
-  Accordion,
-  AccordionButton,
-  AccordionIcon,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  Flex,
-  FormControl,
-  Link,
-  Text,
-  useToast,
-} from '@chakra-ui/react'
+import { Box, Flex, FormControl, Link, useToast } from '@chakra-ui/react'
 import { useChainModal } from '@rainbow-me/rainbowkit'
 import { formatEther, parseEther } from 'ethers/lib/utils.js'
 import ms from 'ms'
@@ -24,7 +12,6 @@ import { useAccount, useBalance, useNetwork, useWaitForTransaction } from 'wagmi
 import StakeStat from '../Dashboard/Cards/StakeStat'
 import { RewardForm } from './RewardForm'
 import { StakeForm } from './StakeForm'
-import { Statistics } from './Statistics'
 
 import { Address } from '@/common/components/Address'
 import { Button } from '@/common/components/Button'
@@ -33,7 +20,7 @@ import ConnectButton from '@/common/components/ConnectButton'
 import { InfoCircleIcon } from '@/common/components/CustomIcon'
 import { SwapIcon } from '@/common/components/CustomIcon/SwapIcon'
 import { Tooltip } from '@/common/components/Tooltip'
-import useTokenggAVAXContract from '@/hooks/contracts/tokenggAVAX'
+import { GGPAddresses, xGGPAddresses } from '@/constants/storageAddresses'
 import useDeposit from '@/hooks/deposit'
 import useLiquidStakingData from '@/hooks/liquidStakingData'
 import useRedeem from '@/hooks/redeem'
@@ -136,7 +123,10 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const { chain } = useNetwork()
 
-  const [swapDirection, setSwapDirection] = useState(true) // false for AVAX -> ggAVAX, true for ggGGP -> AVAX
+  const GGPAddress = GGPAddresses[chain?.id]
+  const xGGPAddress = xGGPAddresses[chain?.id]
+
+  const [swapDirection, setSwapDirection] = useState(false) // false for AVAX -> ggAVAX, true for ggGGP -> AVAX
   const [amount, setAmount] = useState<BigNumber>(parseEther('0')) // stake value
   const [reward, setReward] = useState<BigNumber>(parseEther('0')) // reward value
 
@@ -144,7 +134,7 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const { data: ggAVAXPool } = useAvaxBalanceOfggAVAX()
 
-  const { address: ggAVAXAddress } = useTokenggAVAXContract()
+  // const { address: xGGPAddress } = useTokenggAVAXContract()
 
   const { data: ceresData } = useCeres()
 
@@ -162,17 +152,24 @@ export const LiquidStaking: FunctionComponent = () => {
     totalStakedAVAX,
   } = useLiquidStakingData()
 
-  // AVAX balance
+  // // AVAX balance
+  // const { data: balance, isLoading: isBalanceLoading } = useBalance({
+  //   watch: true,
+  //   address: account,
+  // })
+
+  // GGP Balance
   const { data: balance, isLoading: isBalanceLoading } = useBalance({
     watch: true,
     address: account,
+    token: GGPAddress,
   })
 
-  // ggGGP balance
+  // xGGP balance
   const { data: ggAVAXBalance } = useBalance({
     watch: true,
     address: account,
-    token: ggAVAXAddress,
+    token: xGGPAddress,
   })
 
   // deposit the AVAX
@@ -206,7 +203,7 @@ export const LiquidStaking: FunctionComponent = () => {
     (totalStakedAVAX as BigNumberish) || 0,
     (stakerCount as BigNumberish) || 0,
     (rewardsCycleLength as unknown as number) * 1000,
-    ggAVAXAddress,
+    xGGPAddress,
   )
 
   const handleSwap = () => {
@@ -381,7 +378,7 @@ export const LiquidStaking: FunctionComponent = () => {
                       header="Amount to redeem"
                       setAmount={setAmount}
                       setReward={setReward}
-                      token="ggAVAX"
+                      token="sGGP"
                     />
                   ) : (
                     <StakeForm
@@ -389,6 +386,7 @@ export const LiquidStaking: FunctionComponent = () => {
                       balance={balance?.value || parseEther('0')}
                       setAmount={setAmount}
                       setReward={setReward}
+                      token="GGP"
                     />
                   )}
                 </Content>
@@ -414,10 +412,14 @@ export const LiquidStaking: FunctionComponent = () => {
                   <RewardForm
                     balance={balance?.value || parseEther('0')}
                     reward={reward}
-                    token="AVAX"
+                    token="GGP"
                   />
                 ) : (
-                  <RewardForm balance={ggAVAXBalance?.value || parseEther('0')} reward={reward} />
+                  <RewardForm
+                    balance={ggAVAXBalance?.value || parseEther('0')}
+                    reward={reward}
+                    token="sGGP"
+                  />
                 )}
               </Content>
             </Card>
@@ -429,7 +431,7 @@ export const LiquidStaking: FunctionComponent = () => {
               p="0"
               rounded="12px"
             >
-              <Content>
+              {/* <Content>
                 <Accordion allowToggle>
                   <AccordionItem>
                     <AccordionButton data-testid="liquid-staking-accordion-action" p="1rem 1.5rem">
@@ -443,7 +445,7 @@ export const LiquidStaking: FunctionComponent = () => {
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
-              </Content>
+              </Content> */}
             </Card>
           </FormControl>
         </Content>
@@ -454,7 +456,7 @@ export const LiquidStaking: FunctionComponent = () => {
             <div className="mt-4 text-xs">
               <Link
                 onClick={() => {
-                  addToken(ggAVAXAddress, 'ggAVAX')
+                  addToken(xGGPAddress, 'ggAVAX')
                 }}
               >
                 Add ggGGP token to wallet

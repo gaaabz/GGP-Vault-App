@@ -1,14 +1,15 @@
-import { useBalance } from 'wagmi'
+import { useBalance, useNetwork } from 'wagmi'
 
 import useTokenggAVAXContract from './contracts/tokenggAVAX'
 
-import { WAVAX_ADDR } from '@/constants/contractAddresses'
+import { xGGPAddresses } from '@/constants/storageAddresses'
 
 function useAvaxBalanceOfggAVAX() {
-  const { address: ggAVAXAddress } = useTokenggAVAXContract()
+  const { address: xGGPVault } = useTokenggAVAXContract()
+  const { chain } = useNetwork()
   const balance = useBalance({
-    address: ggAVAXAddress,
-    token: WAVAX_ADDR,
+    address: xGGPVault,
+    token: xGGPAddresses[chain?.id],
   })
   return balance
 }

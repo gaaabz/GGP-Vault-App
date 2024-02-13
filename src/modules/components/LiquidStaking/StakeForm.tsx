@@ -52,11 +52,7 @@ export const StakeForm = ({
             Max
           </button>
         </div>
-        {token === 'AVAX' ? (
-          <AVAXPillUnit value={null} />
-        ) : (
-          <GGPPillUnit title="GGP" value={null} />
-        )}
+        {token === 'GGP' ? <GGPPillUnit title="GGP" value={null} /> : <AVAXPillUnit value={null} />}
       </div>
       <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
       <FormLabel htmlFor="stake-avax-form" id="stake-avax" mb="1">
