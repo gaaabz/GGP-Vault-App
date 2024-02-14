@@ -24,7 +24,7 @@ import { GGPAddresses, xGGPAddresses } from '@/constants/storageAddresses'
 import useDeposit from '@/hooks/deposit'
 import useLiquidStakingData from '@/hooks/liquidStakingData'
 import useRedeem from '@/hooks/redeem'
-import useAvaxBalanceOfggAVAX from '@/hooks/useAvaxBalanceOfggAvax'
+import useAvaxBalanceOfggAVAX, { useMaxRedeem } from '@/hooks/useAvaxBalanceOfggAvax'
 import useCeres from '@/hooks/useCeres'
 import addToken from '@/utils/addToken'
 import { WEI_VALUE } from '@/utils/consts'
@@ -134,7 +134,8 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const { address: account, isConnected } = useAccount()
 
-  const { data: ggAVAXPool } = useAvaxBalanceOfggAVAX()
+  const { data: maxRedeem } = useMaxRedeem()
+  // const { data: maxRedeem } = useAvaxBalanceOfggAVAX()
 
   // const { address: xGGPAddress } = useTokenggAVAXContract()
 
@@ -277,8 +278,8 @@ export const LiquidStaking: FunctionComponent = () => {
   }, [amount, ggAVAXExchangeRate, swapDirection])
 
   let amountGreaterThanPool = false
-  if (ggAVAXPool) {
-    amountGreaterThanPool = amount.gt(ggAVAXPool.value)
+  if (maxRedeem) {
+    amountGreaterThanPool = amount.gt(maxRedeem)
   } else {
     amountGreaterThanPool = amount.gt(BigNumber.from('0'))
   }
@@ -362,9 +363,9 @@ export const LiquidStaking: FunctionComponent = () => {
               <StakeStat
                 item={{
                   placement: 'top',
-                  name: 'ggGGP Pool',
+                  name: 'xGGP Pool',
                   tooltip: 'Balance available in the Liquidity Pool for swaps',
-                  stat: `${ggAVAXPool ? displayBN(ggAVAXPool.value) : '0.00'} ggGGP`,
+                  stat: `${maxRedeem ? displayBN(maxRedeem) : '0.00'} GGP`,
                 }}
               />
             </div>
@@ -383,7 +384,7 @@ export const LiquidStaking: FunctionComponent = () => {
                       header="Amount to redeem"
                       setAmount={setAmount}
                       setReward={setReward}
-                      token="sGGP"
+                      token="xGGP"
                     />
                   ) : (
                     <StakeForm
@@ -423,7 +424,7 @@ export const LiquidStaking: FunctionComponent = () => {
                   <RewardForm
                     balance={ggAVAXBalance?.value || parseEther('0')}
                     reward={reward}
-                    token="sGGP"
+                    token="xGGP"
                   />
                 )}
               </Content>
