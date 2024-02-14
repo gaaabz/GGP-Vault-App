@@ -6,6 +6,7 @@ const addToken = async (address, symbol, decimals = 18): Promise<boolean> => {
   }
 
   try {
+    console.log('meow')
     await window?.ethereum?.request({
       method: 'wallet_watchAsset',
       params: {

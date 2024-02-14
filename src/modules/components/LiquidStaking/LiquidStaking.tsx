@@ -456,7 +456,7 @@ export const LiquidStaking: FunctionComponent = () => {
             <div className="mt-4 text-xs">
               <Link
                 onClick={() => {
-                  addToken(xGGPAddress, 'ggAVAX')
+                  addToken(xGGPAddress, 'ggGGP')
                 }}
               >
                 Add ggGGP token to wallet
