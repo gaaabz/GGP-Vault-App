@@ -16,7 +16,7 @@ export function AVAXPillUnit({ value = null }) {
           fillRule="evenodd"
         />
       </svg>
-      <div className="font-bold tracking-widest">ggGGP</div>
+      <div className="font-bold tracking-widest">xGGP</div>
       {value ? <div>{(Math.round(value * 100) / 100).toFixed(2).replace(/\.?0+$/, '')}</div> : null}
     </span>
   )

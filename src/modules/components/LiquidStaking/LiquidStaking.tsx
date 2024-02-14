@@ -180,6 +180,7 @@ export const LiquidStaking: FunctionComponent = () => {
     isError: isDepositError,
     isLoading: isDepositLoading,
     write: deposit,
+    refetch: refetchDeposit,
   } = useDeposit(amount)
 
   // redeem ggAVAX
@@ -456,13 +457,13 @@ export const LiquidStaking: FunctionComponent = () => {
           </FormControl>
         </Content>
         <Footer>
-          {allowance.gte(amount) ? (
+          {allowance.gte(amount) || swapDirection ? (
             displayButton()
           ) : (
             <ApproveButton
               amount={amount}
               setApproveStatus={() => {
-                console.log('meow')
+                refetchDeposit()
               }}
             />
           )}

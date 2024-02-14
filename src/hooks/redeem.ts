@@ -3,23 +3,24 @@ import { BigNumber } from 'ethers'
 import { useToast } from '@chakra-ui/react'
 import { useAddRecentTransaction } from '@rainbow-me/rainbowkit'
 import { formatEther } from 'ethers/lib/utils'
-import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi'
 
-import useTokenContract from './contracts/tokenggAVAX'
+import useTokenContract, { useTokenxGGPContract } from './contracts/tokenggAVAX'
 
 import { DECODED_ERRORS } from '@/utils/consts'
 
 const useRedeem = (amount: BigNumber) => {
-  const { abi, address } = useTokenContract()
+  const { abi, address } = useTokenxGGPContract()
   const addRecentTransaction = useAddRecentTransaction()
   const toast = useToast()
+  const { address: userAddress } = useAccount()
 
   const { config } = usePrepareContractWrite({
     address,
     abi,
-    functionName: 'redeemAVAX',
+    functionName: 'redeem',
     enabled: !amount.eq(BigNumber.from(0)),
-    args: [amount],
+    args: [amount, userAddress, userAddress],
     onError(error) {
       Object.keys(DECODED_ERRORS).forEach((key) => {
         if (error?.message.includes(key)) {

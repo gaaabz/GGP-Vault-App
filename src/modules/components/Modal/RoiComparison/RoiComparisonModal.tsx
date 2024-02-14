@@ -60,7 +60,7 @@ export const RoiComparisonModal: FunctionComponent<UnstakeModalProps> = ({ onClo
               <Text>Avalanche Validator Solo</Text>
             </Flex>
             <Flex align="center" gap="4" justify="center" p="6">
-              <Image alt="ggGGP" src={ggAVAXIcon} width={24} />
+              <Image alt="xGGP" src={ggAVAXIcon} width={24} />
               <Text>GoGoPool Validator</Text>
             </Flex>
           </SimpleGrid>

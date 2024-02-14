@@ -15,7 +15,7 @@ const useDeposit = (amount: BigNumber) => {
   const toast = useToast()
   const { address: userAddress } = useAccount()
 
-  const { config } = usePrepareContractWrite({
+  const { config, refetch } = usePrepareContractWrite({
     address,
     abi,
     functionName: 'deposit',
@@ -48,6 +48,7 @@ const useDeposit = (amount: BigNumber) => {
   })
 
   return {
+    refetch,
     ...resp,
     ready: resp?.write !== undefined,
   }

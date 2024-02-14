@@ -22,6 +22,7 @@ export function useMaxRedeem() {
   const addr = xGGPAddresses[chain?.id]
 
   return useContractRead({
+    watch: true,
     address: addr,
     abi: xGGP,
     functionName: 'maxRedeem',
