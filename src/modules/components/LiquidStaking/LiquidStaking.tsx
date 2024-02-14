@@ -149,7 +149,6 @@ export const LiquidStaking: FunctionComponent = () => {
   const {
     ggAVAXExchangeRate,
     isLoading: isLoadingStats,
-    rewardsCycleLength,
     stakerCount,
     totalStakedAVAX,
   } = useLiquidStakingData()
@@ -199,14 +198,14 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const isLoading = isBalanceLoading || isDepositLoading || isLoadingStats || isRedeemLoading
 
-  const statisticData = generateStatistics(
-    apy,
-    (ggAVAXExchangeRate as BigNumberish) || 0,
-    (totalStakedAVAX as BigNumberish) || 0,
-    (stakerCount as BigNumberish) || 0,
-    (rewardsCycleLength as unknown as number) * 1000,
-    xGGPAddress,
-  )
+  // const statisticData = generateStatistics(
+  //   apy,
+  //   (ggAVAXExchangeRate as BigNumberish) || 0,
+  //   (totalStakedAVAX as BigNumberish) || 0,
+  //   (stakerCount as BigNumberish) || 0,
+  //   (rewardsCycleLength as unknown as number) * 1000,
+  //   xGGPAddress,
+  // )
 
   const handleSwap = () => {
     const temporaryAmount = amount

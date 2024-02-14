@@ -3,28 +3,30 @@ import { BigNumber } from 'ethers'
 import { useToast } from '@chakra-ui/react'
 import { useAddRecentTransaction } from '@rainbow-me/rainbowkit'
 import { formatEther } from 'ethers/lib/utils'
-import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi'
 
-import useTokenContract from './contracts/tokenggAVAX'
+import { useTokenxGGPContract } from './contracts/tokenggAVAX'
 
 import { DECODED_ERRORS } from '@/utils/consts'
 
 const useDeposit = (amount: BigNumber) => {
-  const { abi, address } = useTokenContract()
+  const { abi, address } = useTokenxGGPContract()
   const addRecentTransaction = useAddRecentTransaction()
   const toast = useToast()
+  const { address: userAddress } = useAccount()
 
   const { config } = usePrepareContractWrite({
     address,
     abi,
-    functionName: 'depositAVAX',
+    functionName: 'deposit',
     enabled: !amount.eq(BigNumber.from(0)),
+    args: [amount, userAddress],
     onError(error) {
       Object.keys(DECODED_ERRORS).forEach((key) => {
         if (error?.message.includes(key)) {
           toast({
             position: 'top',
-            title: 'Error during deposit of AVAX',
+            title: 'Error during deposit of GGP',
             description: DECODED_ERRORS[key],
             status: 'error',
             duration: 20000,
@@ -32,9 +34,6 @@ const useDeposit = (amount: BigNumber) => {
           })
         }
       })
-    },
-    overrides: {
-      value: amount,
     },
   })
 

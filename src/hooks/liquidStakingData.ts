@@ -17,21 +17,13 @@ const useLiquidStakingData = () => {
     functionName: 'totalReleasedAssets',
   })
 
-  const { data: rewardsCycleLength, isLoading: isRewardsCycleLengthLoading } = useContractRead({
-    address: ggAVAXAddr,
-    abi: ggAVAXInterface,
-    functionName: 'rewardsCycleLength',
-    watch: true,
-  })
-
   const { data: stakerCount } = useGetStakerCount()
 
-  const isLoading = isExchangeRateLoading || isStakingBalanceLoading || isRewardsCycleLengthLoading
+  const isLoading = isExchangeRateLoading || isStakingBalanceLoading
 
   return {
     ggAVAXExchangeRate,
     isLoading,
-    rewardsCycleLength,
     totalStakedAVAX,
     stakerCount,
   }
