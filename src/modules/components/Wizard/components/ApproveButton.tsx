@@ -5,7 +5,7 @@ import { useChainModal, useConnectModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useNetwork, useWaitForTransaction } from 'wagmi'
 
 import { Button } from '@/common/components/Button'
-import useApproveGGP from '@/hooks/approve'
+import useApprove, { useApproveGGPtoVault } from '@/hooks/approve'
 
 export interface ApproveProps {
   amount: BigNumber
@@ -18,7 +18,7 @@ const ApproveButton = ({ amount, setApproveStatus }: ApproveProps) => {
   const { chain } = useNetwork()
   const { openChainModal } = useChainModal()
 
-  const { data, isLoading: isApproveLoading, write: approve } = useApproveGGP(amount)
+  const { data, isLoading: isApproveLoading, write: approve } = useApproveGGPtoVault(amount)
 
   const { isLoading } = useWaitForTransaction({
     hash: data?.hash,

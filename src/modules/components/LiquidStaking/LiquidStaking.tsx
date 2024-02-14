@@ -30,6 +30,8 @@ import addToken from '@/utils/addToken'
 import { WEI_VALUE } from '@/utils/consts'
 import { formatEtherFixed } from '@/utils/formatEtherFixed'
 import { displayBN } from '@/utils/numberFormatter'
+import ApproveButton from '../Wizard/components/ApproveButton'
+import { useGGPVaultAllowance } from '@/hooks/allowance'
 
 const generateStatistics = (
   apy: number | string,
@@ -282,6 +284,10 @@ export const LiquidStaking: FunctionComponent = () => {
     amountGreaterThanPool = amount.gt(BigNumber.from('0'))
   }
 
+  const { data: ggpAllowance } = useGGPVaultAllowance(account)
+
+  const allowance = ggpAllowance || BigNumber.from(0)
+
   const displayButton = () => {
     const buttonText = swapDirection ? 'Redeem GGP' : 'Deposit GGP'
     const sufficientBalance = swapDirection
@@ -450,8 +456,16 @@ export const LiquidStaking: FunctionComponent = () => {
           </FormControl>
         </Content>
         <Footer>
-          {displayButton()}
-
+          {allowance.gte(amount) ? (
+            displayButton()
+          ) : (
+            <ApproveButton
+              amount={amount}
+              setApproveStatus={() => {
+                console.log('meow')
+              }}
+            />
+          )}
           {isConnected && (
             <div className="mt-4 text-xs">
               <Link
