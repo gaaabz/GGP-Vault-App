@@ -8,9 +8,9 @@ export const storageAddresses = {
 // 43113 is testnet I think
 
 export const GGPAddresses = {
-  43113: '0x419776D88C06dBc32c07ef2fBB7D1dE1155F3345',
+  43113: '0x6bFCaBc99211A2b090F4266C186be180ff18d907',
 }
 
 export const xGGPAddresses = {
-  43113: '0xcB010b95FF8157Eb0796F02FC83B58C027774C99',
+  43113: '0x4B8B82146Ad0B82618fD7F3C1F40747c14efcFE0',
 }
