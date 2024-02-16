@@ -21,13 +21,20 @@ export default function SidebarItem({ item, setSidebarOpen }: Props) {
       <span
         className={clsx(
           window.location.pathname === item.href
-            ? 'bg-indigo-800 text-white'
-            : 'text-indigo-100 hover:bg-indigo-600',
-          'group flex w-full items-center py-5 px-3 text-base font-medium transition-all',
+            ? 'bg-black text-white'
+            : 'text-black hover:bg-gray-200',
+          'group flex w-full items-center px-12 py-5 text-base font-semibold transition-all',
         )}
       >
         <div className="flex gap-2">
-          {item.icon}
+          <span
+            className={clsx(
+              window.location.pathname === item.href ? 'text-secondary' : 'text-black',
+              'block w-6 flex-none',
+            )}
+          >
+            {item.icon}
+          </span>
           {item.name}
         </div>
       </span>

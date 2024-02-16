@@ -68,7 +68,7 @@ const MQBasicDetails = ({
           mb={8}
         >
           <img alt="Minipool" src="/assets/img/gogopass/minipool-icon.svg" />
-          <Text className="font-domaine text-4xl" mt={2}>
+          <Text className="text-4xl" mt={2}>
             Your Minipool details
           </Text>
           <Text className="text-sm" color={colors.blue[200]} my={2} textAlign="center">

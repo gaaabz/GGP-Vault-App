@@ -4,8 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        jost: ['Jost'], // since font are self-hosted, can assume to not need backup fonts
-        domaine: ['Domaine'],
+        sans: ['Satoshi', 'sans-serif'],
       },
       colors: {
         paper: {
@@ -16,6 +15,7 @@ module.exports = {
         default: '#5A6084',
         subtitle: '#0D0959',
         link: '#5339D6',
+        secondary: '#FFF500',
         tertiary: '#E07138',
         blue: {
           900: '#0D0959',

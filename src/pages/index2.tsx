@@ -30,7 +30,7 @@ const Welcome = () => {
           }}
         >
           <div className="basis-[630px] px-8 text-white">
-            <Text className="pb-4 font-domaine text-4xl sm:text-[40px]" fontWeight="bold">
+            <Text className="pb-4 text-4xl sm:text-[40px]" fontWeight="bold">
               Become a Validator with Minipools
             </Text>
             <Text className="pb-4" fontSize={18} fontWeight={400}>
@@ -39,7 +39,7 @@ const Welcome = () => {
               covered!
             </Text>
             <Divider opacity={'20%'} />
-            <div className="flex flex-wrap justify-center gap-5 pt-7 pb-8 sm:justify-start">
+            <div className="flex flex-wrap justify-center gap-5 pb-8 pt-7 sm:justify-start">
               <NextLink href="/create-minipool">
                 <Button variant="tertiary">Create a Minipool</Button>
               </NextLink>
@@ -59,7 +59,7 @@ const Welcome = () => {
         </div>
 
         <div className="flex flex-col items-center pt-12 text-subtitle">
-          <Text className="font-domaine" fontSize={30} fontWeight="bold">
+          <Text fontSize={30} fontWeight="bold">
             Quick Start Guide
           </Text>
           <div className="w-3/4 text-center text-default">
@@ -133,7 +133,7 @@ const Welcome = () => {
           <Text className="text-center text-tertiary" fontSize={14} fontWeight="bold">
             EXPLORING AVERAGE ROI IN MINIPOOLS
           </Text>
-          <Text className="text-center font-domaine text-subtitle" fontSize={30} fontWeight="bold">
+          <Text className="text-center text-subtitle" fontSize={30} fontWeight="bold">
             Understand Your Rewards
           </Text>
           <Text className="text-center text-default">
@@ -150,7 +150,7 @@ const Welcome = () => {
           <Text className="text-center text-tertiary" fontSize={14} fontWeight="bold">
             WANT TO LEARN MORE?
           </Text>
-          <Text className="text-center font-domaine text-subtitle" fontSize={30} fontWeight="bold">
+          <Text className="text-center text-subtitle" fontSize={30} fontWeight="bold">
             Discover the Why and How
           </Text>
           <div className="flex flex-wrap justify-around gap-10 py-12">

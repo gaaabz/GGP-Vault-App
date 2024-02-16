@@ -4,7 +4,7 @@ import { HiBars3BottomLeft } from 'react-icons/hi2'
 
 import { NavbarItemTitle } from '../SidebarNavbar'
 
-import gogoPoolTitle from '/public/assets/img/nav/logo-dark-purple.svg'
+import ggpVaultTitle from '/public/assets/img/nav/ggp-vault.svg'
 
 import ConnectButton from '@/common/components/ConnectButton'
 
@@ -22,14 +22,14 @@ export const NavBar = ({ navbarTitle, setNavbarTitle, setSidebarOpen }: Props) =
         onClick={() => setSidebarOpen(true)}
       >
         <span className="sr-only">Open sidebar</span>
-        <HiBars3BottomLeft aria-hidden="true" className="h-6 w-6" />
+        <HiBars3BottomLeft aria-hidden="true" className="size-6" />
       </button>
 
       <div className="flex flex-1 justify-between pr-4">
         <div className="flex">
-          <div className="hidden w-64 shrink-0 items-center px-4 sm:flex">
+          <div className="hidden w-64 shrink-0 items-center border-r border-r-[#E0E0E0] px-4 sm:flex">
             <NextLink href="/" onClick={() => setNavbarTitle('VALIDATE')}>
-              <Image alt="white logo" src={gogoPoolTitle} width={152} />
+              <Image alt="GGP Vault" src={ggpVaultTitle} width={189} />
             </NextLink>
           </div>
           <div className="hidden items-center gap-10 px-4 font-bold text-blue-900 sm:flex">

@@ -13,7 +13,7 @@ export default function MQLogo() {
         pt={'44px'}
       >
         <img alt="Minipool" src="/assets/img/gogopass/minipool-icon.svg" />
-        <Text className="font-domaine text-4xl" mt={2}>
+        <Text className="text-4xl" mt={2}>
           Your Minipool details
         </Text>
       </Box>

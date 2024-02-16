@@ -32,6 +32,13 @@ const theme = extendTheme(
     colors,
     config,
     breakpoints,
+    styles: {
+      global: {
+        'html, body': {
+          bg: '#F3F3F3',
+        },
+      },
+    },
   },
   withProse(),
 )

@@ -34,6 +34,12 @@ export const Button: ComponentStyleConfig = {
       fontSize: '18px',
       lineHeight: '28px',
     },
+    'xl': {
+      paddingX: '32px',
+      fontSize: '16px',
+      paddingY: '8px',
+      innerHeight: '56px',
+    },
     'iconOnly-xs': {
       height: '34px',
       width: '34px',
@@ -57,34 +63,34 @@ export const Button: ComponentStyleConfig = {
   },
   variants: {
     'primary': {
-      bgColor: 'green.500',
+      bgColor: '#FFF500',
       _hover: {
-        bgColor: 'green.600',
+        bgColor: '#FFF500',
         _disabled: {
-          bgColor: 'green.500',
+          bgColor: '#FFF500',
         },
       },
     },
     'secondary-filled': {
       color: 'grey.0',
-      bgColor: 'blue.500',
+      bgColor: 'black',
       _hover: {
-        bgColor: 'blue.550',
+        bgColor: 'black',
       },
     },
     'secondary-outline': ({ theme }) => ({
-      boxShadow: `inset 0 0 0 2px ${theme.colors.blue[500]}`,
-      color: 'blue.500',
+      boxShadow: `inset 0 0 0 2px ${theme.colors.black}`,
+      color: 'black',
       _hover: {
-        color: 'blue.550',
-        boxShadow: `inset 0 0 0 2px ${theme.colors.blue[550]}`,
+        color: 'black',
+        boxShadow: `inset 0 0 0 2px ${theme.colors.black}`,
       },
       _disabled: {
-        boxShadow: `inset 0 0 0 2px ${theme.colors.blue[550]}`,
+        boxShadow: `inset 0 0 0 2px ${theme.colors.gray[550]}`,
       },
     }),
     'tertiary': {
-      color: 'blue.500',
+      color: 'black',
       bgColor: 'white',
       _hover: {
         bgColor: 'gray.100',

@@ -40,7 +40,7 @@ export const SuccessfulClaim: FunctionComponent<SuccessfulClaimProps> = ({
   return (
     <Flex align="center" direction="column" gap={2}>
       <ThumbsUp />
-      <Text className="mb-4 font-domaine" fontSize={32} fontWeight="bold">
+      <Text className="mb-4" fontSize={32} fontWeight="bold">
         Success!
       </Text>
       <div className="flex w-full flex-col space-y-4">

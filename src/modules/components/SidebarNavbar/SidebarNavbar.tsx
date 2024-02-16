@@ -1,8 +1,11 @@
 import { ReactNode, useState } from 'react'
 
-import { FaHammer, FaRegCompass } from 'react-icons/fa'
+import { FaHammer } from 'react-icons/fa'
 import { LuArrowDownUp } from 'react-icons/lu'
 
+import { IconDocs } from '../IconDocs'
+import { IconMetrics } from '../IconMetrics'
+import { IconStart } from '../IconStart'
 import { NavBar } from './NavigationBar/NavBar'
 import DesktopSidebar from './Sidebar/DesktopSidebar'
 import MobileSidebar from './Sidebar/MobileSidebar'
@@ -17,9 +20,19 @@ export type NavbarItemTitle = 'VALIDATE'
 
 const validateSidebar = [
   {
-    name: 'GGP Vault',
+    name: 'Start',
     href: '/',
-    icon: <FaRegCompass color="#fff" size={24} />,
+    icon: <IconStart className="h-6 w-full flex-none object-contain object-center" />,
+  },
+  {
+    name: 'Docs',
+    href: 'https://docs.seafi.app',
+    icon: <IconDocs className="h-6 w-full flex-none object-contain object-center" />,
+  },
+  {
+    name: 'Metrics',
+    href: '#',
+    icon: <IconMetrics className="h-6 w-full flex-none object-contain object-center" />,
   },
 ]
 
@@ -53,7 +66,7 @@ export function SidebarNavbar({ children }: { children: ReactNode }) {
 
   return (
     <div className="h-full">
-      <div className="fixed top-0 z-10 flex h-16 w-full shrink-0 bg-white shadow">
+      <div className="fixed top-0 z-10 flex h-[88px] w-full shrink-0 bg-white shadow">
         <NavBar
           navbarTitle={navbarTitle}
           setNavbarTitle={setNavbarTitle}
@@ -74,7 +87,7 @@ export function SidebarNavbar({ children }: { children: ReactNode }) {
 
       {/* Main Page Content */}
       <div className="flex h-full flex-1 flex-col sm:pl-64">
-        <main className="h-full pt-16">{children}</main>
+        <main className="h-full pt-[88px]">{children}</main>
       </div>
     </div>
   )

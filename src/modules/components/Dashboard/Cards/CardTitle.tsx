@@ -13,7 +13,7 @@ export default function CardTitle({ icon, subtitle, title }: Props) {
     <div className="flex items-center gap-3">
       <div>{icon}</div>
       <div className="flex flex-col justify-center">
-        <Text className="font-domaine text-2xl font-semibold">{title}</Text>
+        <Text className="text-2xl font-semibold">{title}</Text>
         <span className="text-sm text-blue-400">{subtitle}</span>
       </div>
     </div>

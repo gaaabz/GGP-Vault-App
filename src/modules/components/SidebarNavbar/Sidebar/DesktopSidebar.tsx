@@ -8,11 +8,11 @@ type Props = {
 
 export default function DesktopSidebar({ sidebarItems }: Props) {
   return (
-    <div className="relative hidden sm:fixed sm:inset-y-0 sm:flex sm:w-64 sm:flex-col">
+    <div className="relative hidden border-r border-r-[#E0E0E0] sm:fixed sm:inset-y-0 sm:flex sm:w-64 sm:flex-col">
       {/* Sidebar component, swap this element with another sidebar if you like */}
-      <div className="flex grow flex-col overflow-y-auto bg-indigo-700 pt-11">
-        <div className="mt-5 flex flex-1 flex-col">
-          <nav className="flex-1">
+      <div className="flex grow flex-col overflow-y-auto bg-white pt-[88px]">
+        <div className="flex flex-1 flex-col">
+          <nav className="flex flex-1 flex-col gap-2">
             {sidebarItems.map((item) => (
               <span key={item.name}>
                 <SidebarItem item={item} />
