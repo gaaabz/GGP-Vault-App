@@ -359,7 +359,7 @@ export const LiquidStaking: FunctionComponent = () => {
               <StakeStat
                 item={{
                   placement: 'top',
-                  name: 'xGGP Pool',
+                  name: 'ggGGP Pool',
                   tooltip: 'Balance available in the Liquidity Pool for swaps',
                   stat: `${maxRedeem ? displayBN(maxRedeem) : '0.00'} GGP`,
                 }}

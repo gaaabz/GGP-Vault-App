@@ -4,7 +4,6 @@ import { FaHammer } from 'react-icons/fa'
 import { LuArrowDownUp } from 'react-icons/lu'
 
 import { IconDocs } from '../IconDocs'
-import { IconMetrics } from '../IconMetrics'
 import { IconStart } from '../IconStart'
 import { NavBar } from './NavigationBar/NavBar'
 import DesktopSidebar from './Sidebar/DesktopSidebar'
@@ -29,11 +28,11 @@ const validateSidebar = [
     href: 'https://docs.seafi.app',
     icon: <IconDocs className="h-6 w-full flex-none object-contain object-center" />,
   },
-  {
-    name: 'Metrics',
-    href: '#',
-    icon: <IconMetrics className="h-6 w-full flex-none object-contain object-center" />,
-  },
+  // {
+  //   name: 'Metrics',
+  //   href: '#',
+  //   icon: <IconMetrics className="h-6 w-full flex-none object-contain object-center" />,
+  // },
 ]
 
 const liquidSidebar = [
