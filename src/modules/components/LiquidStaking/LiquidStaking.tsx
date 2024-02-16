@@ -2,7 +2,19 @@
 import { BigNumber, BigNumberish } from 'ethers'
 import { FunctionComponent, useEffect, useState } from 'react'
 
-import { Box, Flex, FormControl, Link, Text, useToast } from '@chakra-ui/react'
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Flex,
+  FormControl,
+  Link,
+  Text,
+  useToast,
+} from '@chakra-ui/react'
 import { useChainModal } from '@rainbow-me/rainbowkit'
 import { formatEther, parseEther } from 'ethers/lib/utils.js'
 import ms from 'ms'
@@ -13,6 +25,7 @@ import StakeStat from '../Dashboard/Cards/StakeStat'
 import ApproveButton from '../Wizard/components/ApproveButton'
 import { RewardForm } from './RewardForm'
 import { StakeForm } from './StakeForm'
+import { Statistics } from './Statistics'
 
 import { Address } from '@/common/components/Address'
 import { Button } from '@/common/components/Button'
@@ -195,14 +208,7 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const isLoading = isBalanceLoading || isDepositLoading || isLoadingStats || isRedeemLoading
 
-  // const statisticData = generateStatistics(
-  //   apy,
-  //   (ggAVAXExchangeRate as BigNumberish) || 0,
-  //   (totalStakedAVAX as BigNumberish) || 0,
-  //   (stakerCount as BigNumberish) || 0,
-  //   (rewardsCycleLength as unknown as number) * 1000,
-  //   xGGPAddress,
-  // )
+  const statisticData = generateStatistics(apy, 0, 0, 0, 0, xGGPAddress)
 
   const handleSwap = () => {
     const temporaryAmount = amount
@@ -359,7 +365,7 @@ export const LiquidStaking: FunctionComponent = () => {
               <StakeStat
                 item={{
                   placement: 'top',
-                  name: 'ggGGP Pool',
+                  name: 'xGGP Pool',
                   tooltip: 'Balance available in the Liquidity Pool for swaps',
                   stat: `${maxRedeem ? displayBN(maxRedeem) : '0.00'} GGP`,
                 }}
@@ -380,7 +386,7 @@ export const LiquidStaking: FunctionComponent = () => {
                       header="Amount to redeem"
                       setAmount={setAmount}
                       setReward={setReward}
-                      token="ggGGP"
+                      token="xGGP"
                     />
                   ) : (
                     <StakeForm
@@ -420,24 +426,17 @@ export const LiquidStaking: FunctionComponent = () => {
                   <RewardForm
                     balance={ggAVAXBalance?.value || parseEther('0')}
                     reward={reward}
-                    token="ggGGP"
+                    token="xGGP"
                   />
                 )}
               </Content>
             </Card>
-            <Card
-              backgroundColor="white.100"
-              className="border border-gray-300"
-              hidden={!isConnected}
-              mb="2"
-              p="0"
-              rounded="12px"
-            >
-              {/* <Content>
+            <Card backgroundColor="white.100" hidden={!isConnected} mb="2" p="0" rounded="12px">
+              <Content>
                 <Accordion allowToggle>
                   <AccordionItem>
                     <AccordionButton data-testid="liquid-staking-accordion-action" p="1rem 1.5rem">
-                      <Text flex="1" fontWeight="bold" size="md" textAlign="left">
+                      <Text flex="1" fontWeight="black" size="md" textAlign="left">
                         View liquid staking statistics
                       </Text>
                       <AccordionIcon />
@@ -447,7 +446,7 @@ export const LiquidStaking: FunctionComponent = () => {
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
-              </Content> */}
+              </Content>
             </Card>
           </FormControl>
         </Content>
@@ -469,7 +468,7 @@ export const LiquidStaking: FunctionComponent = () => {
                   addToken(xGGPAddress, 'ggGGP')
                 }}
               >
-                Add ggGGP token to wallet
+                Add xGGP token to wallet
               </Link>
             </div>
           )}
