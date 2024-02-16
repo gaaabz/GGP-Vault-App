@@ -71,7 +71,7 @@ const generateStatistics = (
         </>
       ),
       value: tokenAddress ? (
-        <Address copyable fontWeight="bold">
+        <Address className="font-black" copyable fontWeight="bold">
           {tokenAddress}
         </Address>
       ) : (

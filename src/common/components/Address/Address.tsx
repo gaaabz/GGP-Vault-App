@@ -33,8 +33,8 @@ export const Address: FunctionComponent<PropsWithChildren<AddressProps>> = ({
   truncate = true,
   ellipsis = '..',
   copyable,
-  fontSize = 'sm',
-  fontWeight = 400,
+  fontSize = 'md',
+  fontWeight = 900,
   hasIcon = true,
   copyIfClicked = false,
   ...props
@@ -62,7 +62,13 @@ export const Address: FunctionComponent<PropsWithChildren<AddressProps>> = ({
       gap="2px"
       onClick={copyIfClicked ? () => handleCopy() : undefined}
     >
-      <Text color={textColor} fontSize={fontSize} fontWeight={fontWeight} {...props}>
+      <Text
+        className="font-black"
+        color={textColor}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        {...props}
+      >
         {truncate ? startLetter + ellipsis + lastLetter : children}
       </Text>
       {Boolean(copyable) && hasIcon && (
