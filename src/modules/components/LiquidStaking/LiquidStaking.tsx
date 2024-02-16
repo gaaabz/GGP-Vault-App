@@ -436,7 +436,7 @@ export const LiquidStaking: FunctionComponent = () => {
                 <Accordion allowToggle>
                   <AccordionItem>
                     <AccordionButton data-testid="liquid-staking-accordion-action" p="1rem 1.5rem">
-                      <Text flex="1" fontWeight="black" size="md" textAlign="left">
+                      <Text flex="1" fontWeight="black" size="lg" textAlign="left">
                         View liquid staking statistics
                       </Text>
                       <AccordionIcon />
