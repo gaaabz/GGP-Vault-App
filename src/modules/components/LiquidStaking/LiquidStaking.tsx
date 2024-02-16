@@ -10,6 +10,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 import { useAccount, useBalance, useNetwork, useWaitForTransaction } from 'wagmi'
 
 import StakeStat from '../Dashboard/Cards/StakeStat'
+import ApproveButton from '../Wizard/components/ApproveButton'
 import { RewardForm } from './RewardForm'
 import { StakeForm } from './StakeForm'
 
@@ -21,17 +22,16 @@ import { InfoCircleIcon } from '@/common/components/CustomIcon'
 import { SwapIcon } from '@/common/components/CustomIcon/SwapIcon'
 import { Tooltip } from '@/common/components/Tooltip'
 import { GGPAddresses, xGGPAddresses } from '@/constants/storageAddresses'
+import { useGGPVaultAllowance } from '@/hooks/allowance'
 import useDeposit from '@/hooks/deposit'
 import useLiquidStakingData from '@/hooks/liquidStakingData'
 import useRedeem from '@/hooks/redeem'
-import useAvaxBalanceOfggAVAX, { useMaxRedeem } from '@/hooks/useAvaxBalanceOfggAvax'
+import { useMaxRedeem } from '@/hooks/useAvaxBalanceOfggAvax'
 import useCeres from '@/hooks/useCeres'
 import addToken from '@/utils/addToken'
 import { WEI_VALUE } from '@/utils/consts'
 import { formatEtherFixed } from '@/utils/formatEtherFixed'
 import { displayBN } from '@/utils/numberFormatter'
-import ApproveButton from '../Wizard/components/ApproveButton'
-import { useGGPVaultAllowance } from '@/hooks/allowance'
 
 const generateStatistics = (
   apy: number | string,
@@ -147,12 +147,7 @@ export const LiquidStaking: FunctionComponent = () => {
     apy = ggAVAXAPY.value as number
   }
 
-  const {
-    ggAVAXExchangeRate,
-    isLoading: isLoadingStats,
-    stakerCount,
-    totalStakedAVAX,
-  } = useLiquidStakingData()
+  const { ggAVAXExchangeRate, isLoading: isLoadingStats, stakerCount } = useLiquidStakingData()
 
   // // AVAX balance
   // const { data: balance, isLoading: isBalanceLoading } = useBalance({
@@ -179,8 +174,8 @@ export const LiquidStaking: FunctionComponent = () => {
     data: depositData,
     isError: isDepositError,
     isLoading: isDepositLoading,
-    write: deposit,
     refetch: refetchDeposit,
+    write: deposit,
   } = useDeposit(amount)
 
   // redeem ggAVAX

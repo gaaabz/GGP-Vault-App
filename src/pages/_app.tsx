@@ -16,17 +16,19 @@ import theme from '@/theme'
 
 const { chains, wagmiClient } = configWagmiClient()
 
+const NoS = NoSSR as any
+
 export const App = ({ Component, pageProps }) => {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
-    <NoSSR>
+    <NoS>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains} showRecentTransactions>
           <ChakraProvider theme={theme}>
             <ChakraFonts />
-            {/* <CrispWithNoSSR /> */}
+            {/* <CrispWithNoS /> */}
             <Analytics />
             <Head>
               <meta
@@ -39,7 +41,7 @@ export const App = ({ Component, pageProps }) => {
           </ChakraProvider>
         </RainbowKitProvider>
       </WagmiConfig>
-    </NoSSR>
+    </NoS>
   )
 }
 

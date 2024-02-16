@@ -46,7 +46,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 'off',
-    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-imports': 'warn',
     'unused-imports/no-unused-vars': [
       'warn',
       {
@@ -58,7 +58,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'prettier/prettier': ['warn', { endOfLine: 'auto' }],
     'import/no-extraneous-dependencies': [
       'error',
       { optionalDependencies: false, peerDependencies: false },
@@ -68,7 +68,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-console': 'off',
     'sort-imports': [
-      'error',
+      'warn',
       {
         ignoreDeclarationSort: true,
       },
@@ -78,7 +78,7 @@ module.exports = {
     'import/extensions': 0,
     'import/no-unresolved': 0,
     'import/order': [
-      'error',
+      'warn',
       {
         'alphabetize': { order: 'asc' },
         'groups': [

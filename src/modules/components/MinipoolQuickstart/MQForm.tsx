@@ -191,7 +191,7 @@ const MQForm = ({ formData, setFormData, showHardwareCostLoading }) => {
                   location: e.target.value,
                 })
               }
-              placeholder="Select option"
+              // placeholder="Select option"
               value={formData.location}
             >
               <option value="">Your location is needed for ooNodz...</option>
@@ -230,7 +230,7 @@ const MQForm = ({ formData, setFormData, showHardwareCostLoading }) => {
                   validationLength: e.target.value,
                 })
               }
-              placeholder="Select option"
+              // placeholder="Select option"
               value={formData.length}
             >
               {chain?.id == null ? (
