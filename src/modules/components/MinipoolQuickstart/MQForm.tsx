@@ -77,7 +77,7 @@ const MQForm = ({ formData, setFormData, showHardwareCostLoading }) => {
           justifyContent="center"
           w={'full'}
         >
-          <Text className="font-domaine text-4xl">Let&apos;s create your Minipool</Text>
+          <Text className="text-4xl">Let&apos;s create your Minipool</Text>
           <Box w="80%">
             <Text className="text-sm" mb={2} mt={4}>
               By staking {DEFAULT_AVAX_NUMBER[chain?.id] + DEFAULT_GGP_NUMBER[chain?.id]} AVAX and

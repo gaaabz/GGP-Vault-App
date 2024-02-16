@@ -2,7 +2,19 @@
 import { BigNumber, BigNumberish } from 'ethers'
 import { FunctionComponent, useEffect, useState } from 'react'
 
-import { Box, Flex, FormControl, Link, useToast } from '@chakra-ui/react'
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Flex,
+  FormControl,
+  Link,
+  Text,
+  useToast,
+} from '@chakra-ui/react'
 import { useChainModal } from '@rainbow-me/rainbowkit'
 import { formatEther, parseEther } from 'ethers/lib/utils.js'
 import ms from 'ms'
@@ -13,10 +25,11 @@ import StakeStat from '../Dashboard/Cards/StakeStat'
 import ApproveButton from '../Wizard/components/ApproveButton'
 import { RewardForm } from './RewardForm'
 import { StakeForm } from './StakeForm'
+import { Statistics } from './Statistics'
 
 import { Address } from '@/common/components/Address'
 import { Button } from '@/common/components/Button'
-import { Card, Content, Footer, Title } from '@/common/components/Card'
+import { Card, Content, Footer } from '@/common/components/Card'
 import ConnectButton from '@/common/components/ConnectButton'
 import { InfoCircleIcon } from '@/common/components/CustomIcon'
 import { SwapIcon } from '@/common/components/CustomIcon/SwapIcon'
@@ -58,7 +71,7 @@ const generateStatistics = (
         </>
       ),
       value: tokenAddress ? (
-        <Address copyable fontWeight="bold">
+        <Address className="font-black" copyable fontWeight="bold">
           {tokenAddress}
         </Address>
       ) : (
@@ -195,14 +208,7 @@ export const LiquidStaking: FunctionComponent = () => {
 
   const isLoading = isBalanceLoading || isDepositLoading || isLoadingStats || isRedeemLoading
 
-  // const statisticData = generateStatistics(
-  //   apy,
-  //   (ggAVAXExchangeRate as BigNumberish) || 0,
-  //   (totalStakedAVAX as BigNumberish) || 0,
-  //   (stakerCount as BigNumberish) || 0,
-  //   (rewardsCycleLength as unknown as number) * 1000,
-  //   xGGPAddress,
-  // )
+  const statisticData = generateStatistics(apy, 0, 0, 0, 0, xGGPAddress)
 
   const handleSwap = () => {
     const temporaryAmount = amount
@@ -353,7 +359,7 @@ export const LiquidStaking: FunctionComponent = () => {
     <>
       <Card outer>
         <Flex justifyContent={'space-between'}>
-          <Title className="pb-4">GGP Vault</Title>
+          <Text className="pb-4 text-[32px] font-black">GGP Vault</Text>
           {swapDirection && (
             <div className="max-[200px] flex justify-center px-2">
               <StakeStat
@@ -370,7 +376,7 @@ export const LiquidStaking: FunctionComponent = () => {
         <Content>
           <FormControl>
             <Box position="relative">
-              <Card backgroundColor="grey.100" mb="2">
+              <Card backgroundColor="#F2F2F2" mb="4">
                 <Content>
                   {swapDirection ? (
                     <StakeForm
@@ -395,20 +401,20 @@ export const LiquidStaking: FunctionComponent = () => {
               </Card>
               <Box
                 alignItems="center"
-                bgColor="green.500"
-                borderRadius="md"
-                className="left-[calc(50%-16px)] bottom-[-16px] cursor-pointer transition-colors hover:border hover:border-solid hover:border-green-600 hover:bg-green-200"
+                bgColor="#00C2FF"
+                borderRadius="full"
+                className="bottom-[-32px] left-[calc(50%-24px)] cursor-pointer transition-colors hover:border hover:border-solid hover:border-[#00C2FF] hover:bg-cyan-200"
                 display="flex"
-                h="6"
+                h="48px"
                 justifyContent="center"
                 onClick={handleSwap}
                 position="absolute"
-                w="8"
+                w="48px"
               >
                 <SwapIcon size="16px" />
               </Box>
             </Box>
-            <Card backgroundColor="grey.100" mb="4" p="1rem 1.5rem">
+            <Card backgroundColor="#F2F2F2" mb="4">
               <Content>
                 {swapDirection ? (
                   <RewardForm
@@ -425,19 +431,12 @@ export const LiquidStaking: FunctionComponent = () => {
                 )}
               </Content>
             </Card>
-            <Card
-              backgroundColor="white.100"
-              className="border border-gray-300"
-              hidden={!isConnected}
-              mb="2"
-              p="0"
-              rounded="12px"
-            >
-              {/* <Content>
+            <Card backgroundColor="white.100" hidden={!isConnected} mb="2" p="0" rounded="12px">
+              <Content>
                 <Accordion allowToggle>
                   <AccordionItem>
                     <AccordionButton data-testid="liquid-staking-accordion-action" p="1rem 1.5rem">
-                      <Text flex="1" fontWeight="bold" size="md" textAlign="left">
+                      <Text flex="1" fontWeight="black" size="lg" textAlign="left">
                         View liquid staking statistics
                       </Text>
                       <AccordionIcon />
@@ -447,11 +446,11 @@ export const LiquidStaking: FunctionComponent = () => {
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
-              </Content> */}
+              </Content>
             </Card>
           </FormControl>
         </Content>
-        <Footer>
+        <Footer className="flex flex-col items-center">
           {allowance.gte(amount) || swapDirection ? (
             displayButton()
           ) : (
@@ -463,13 +462,13 @@ export const LiquidStaking: FunctionComponent = () => {
             />
           )}
           {isConnected && (
-            <div className="mt-4 text-xs">
+            <div className="mt-4 text-center text-base">
               <Link
                 onClick={() => {
                   addToken(xGGPAddress, 'ggGGP')
                 }}
               >
-                Add ggGGP token to wallet
+                Add xGGP token to wallet
               </Link>
             </div>
           )}

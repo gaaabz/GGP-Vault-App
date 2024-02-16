@@ -5,7 +5,7 @@ import { Tooltip } from '@/common/components/Tooltip'
 export default function StakeStat({ item }) {
   return (
     <div className="flex w-full justify-between gap-2">
-      <span className="flex items-center gap-1 py-4 text-sm font-bold text-blue-500">
+      <span className="flex items-center gap-1 py-4 text-sm font-bold text-black">
         <dt>{item.name}</dt>
         <span className="hidden sm:block">
           <Tooltip content={item.tooltip} placement={item.placement ? item.placement : 'right'}>

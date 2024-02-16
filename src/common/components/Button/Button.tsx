@@ -3,7 +3,7 @@ import { FunctionComponent, PropsWithChildren, ReactElement } from 'react'
 import { Box, Button as ChakraButton, ButtonProps as ChakraButtonProps } from '@chakra-ui/react'
 
 export interface ButtonProps extends ChakraButtonProps {
-  size?: 'xs' | 'sm' | 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   variant?:
     | 'link'
     | 'primary'
@@ -32,7 +32,7 @@ export const Button: FunctionComponent<PropsWithChildren<ButtonProps>> = ({
 }) => {
   return (
     <ChakraButton
-      className="font-jost transition hover:scale-105 hover:bg-indigo-50"
+      className="transition hover:scale-105 hover:bg-indigo-50"
       disabled={disabled}
       height="full"
       onClick={onClick}

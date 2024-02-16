@@ -1,5 +1,5 @@
-import '@/styles/globals.scss'
 import '@/styles/components.scss'
+import '@/styles/globals.scss'
 import '@rainbow-me/rainbowkit/styles.css'
 
 import { ChakraProvider } from '@chakra-ui/react'

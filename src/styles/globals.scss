@@ -2,89 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Satoshi */
 @font-face {
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi/Satoshi-Light.woff2') format('woff2'),
+    url('../fonts/Satoshi/Satoshi-Light.woff') format('woff');
+  font-weight: 300;
   font-display: swap;
-  src: url(/assets/fonts/Jost/Jost-VariableFont_wght.ttf) format('truetype');
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Jost';
-  font-style: italic;
-  font-weight: normal;
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi/Satoshi-Regular.woff2') format('woff2'),
+    url('../fonts/Satoshi/Satoshi-Regular.woff') format('woff');
+  font-weight: 400;
   font-display: swap;
-  src: url(/assets/fonts/Jost/Jost-Italic-VariableFont_wght.ttf) format('truetype');
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: bold;
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi/Satoshi-Medium.woff2') format('woff2'),
+    url('../fonts/Satoshi/Satoshi-Medium.woff') format('woff');
+  font-weight: 500;
   font-display: swap;
-  src: url(/assets/fonts/Jost/Jost-Bold-VariableFont_wght.ttf) format('truetype');
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Domaine';
-  font-style: normal;
-  font-weight: normal;
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi/Satoshi-Bold.woff2') format('woff2'),
+    url('../fonts/Satoshi/Satoshi-Bold.woff') format('woff');
+  font-weight: 700;
   font-display: swap;
-  src: url(/assets/fonts/Domaine/domaine-display-medium.woff2) format('truetype');
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Domaine';
-  font-style: normal;
-  font-weight: bold;
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi/Satoshi-Black.woff2') format('woff2'),
+    url('../fonts/Satoshi/Satoshi-Black.woff') format('woff');
+  font-weight: 900;
   font-display: swap;
-  src: url(/assets/fonts/Domaine/domaine-display-extrabold.woff2) format('truetype');
+  font-style: normal;
 }
 
 @layer base {
   /** Typography **/
   // i do not create the specific class for bold. to use the extrabold, add `font-bold` to the classname
   .h1 {
-    @apply font-domaine text-[80px] leading-[88px];
+    @apply text-[80px] leading-[88px];
   }
 
   .h2 {
-    @apply font-domaine text-[60px] leading-[66px];
+    @apply text-[60px] leading-[66px];
   }
 
   .h3 {
-    @apply font-domaine text-[48px] leading-[52px];
+    @apply text-[48px] leading-[52px];
   }
 
   .h4 {
-    @apply font-domaine text-[36px] leading-[40px];
+    @apply text-[36px] leading-[40px];
   }
 
   .h5 {
-    @apply font-domaine text-[32px] leading-[40px];
+    @apply text-[32px] leading-[40px];
   }
 
   .pxxl {
     // temporary classname. do chime in if there is a better idea for this
     // i do not create the specific class for italic. to use the italic, add `italic` to the classname
-    @apply font-jost text-[32px] leading-[40px];
+    @apply text-[32px] leading-[40px];
   }
 
   .pxl {
-    @apply font-jost text-[24px] leading-[36px];
+    @apply text-[24px] leading-[36px];
   }
 
   .pl {
-    @apply font-jost text-[18px] leading-[28px];
+    @apply text-[18px] leading-[28px];
   }
 
   .p {
-    @apply font-jost text-[16px] leading-[24px];
+    @apply text-[16px] leading-[24px];
   }
 
   .ps {
-    @apply font-jost text-[14px] leading-[22px];
+    @apply text-[14px] leading-[22px];
   }
   /** ---------- **/
 }

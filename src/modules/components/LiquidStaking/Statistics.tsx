@@ -8,20 +8,21 @@ interface Props {
 
 export const Statistics: FunctionComponent<Props> = ({ data }) => {
   return (
-    <Box className="space-y-2" gap="0.25rem">
+    <Box className="flex flex-col gap-5">
       {data.map(({ label, value }, index) => (
         <Box display="flex" flexDir="row" justifyContent="space-between" key={index}>
           <Text
             alignItems="center"
             as="div"
-            color="grey.600"
+            color="black"
             display="flex"
             flexDir="row"
-            size="sm"
+            fontWeight="400"
+            size="md"
           >
             {label}
           </Text>
-          <Text as="div" fontWeight="bold" size="sm">
+          <Text as="div" fontWeight="black" size="md">
             {value}
           </Text>
         </Box>

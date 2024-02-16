@@ -13,13 +13,10 @@ const Error404 = (): JSX.Element => {
       <div style={{ width: '250px', height: '400px' }}>
         <Image alt="not found" height={0} src={notFound} width={0} />
       </div>
-      <Text
-        className="max-w-[600px] text-center font-domaine font-semibold text-blue-900"
-        fontSize={28}
-      >
+      <Text className="max-w-[600px] text-center font-semibold text-blue-900" fontSize={28}>
         Uh Oh. Looks Like you&apos;ve gone off course.
       </Text>
-      <Text className="max-w-[600px] text-center font-domaine text-blue-900" fontSize={20}>
+      <Text className="max-w-[600px] text-center text-blue-900" fontSize={20}>
         If you believe you were led astray and this page is a surprise, a message to our helpful
         team, will get you back flying high.
       </Text>

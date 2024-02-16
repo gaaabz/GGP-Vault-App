@@ -22,7 +22,7 @@ export const PendingStake: FunctionComponent<PendingStakeProps> = ({
 }) => {
   return (
     <Flex align="center" direction="column" gap={2}>
-      <Text className="my-4 text-center font-domaine font-bold" fontSize={30}>
+      <Text className="my-4 text-center font-bold" fontSize={30}>
         Things are happening...
       </Text>
 

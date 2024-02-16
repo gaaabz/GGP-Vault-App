@@ -5,7 +5,7 @@ import { useChainModal, useConnectModal } from '@rainbow-me/rainbowkit'
 import { useAccount, useNetwork, useWaitForTransaction } from 'wagmi'
 
 import { Button } from '@/common/components/Button'
-import useApprove, { useApproveGGPtoVault } from '@/hooks/approve'
+import { useApproveGGPtoVault } from '@/hooks/approve'
 
 export interface ApproveProps {
   amount: BigNumber
@@ -45,9 +45,10 @@ const ApproveButton = ({ amount, setApproveStatus }: ApproveProps) => {
   return isConnected ? (
     <Button
       disabled={!amount || amount.lt(0) || isApproveLoading || !approve || isLoading}
+      height="14"
       isLoading={isApproveLoading || isLoading}
       onClick={approve}
-      size="sm"
+      size="xl"
       variant="primary"
     >
       Approve...

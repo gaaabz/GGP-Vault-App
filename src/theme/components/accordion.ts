@@ -4,16 +4,20 @@ export const Accordion: ComponentStyleConfig = {
   parts: ['container', 'button', 'panel'],
   baseStyle: {
     container: {
-      rounded: 'lg',
-      borderWidth: '0',
-      _last: { borderWidth: '0' },
+      rounded: '1.25rem',
+      border: '1px solid',
+      borderColor: 'black',
     },
     button: {
       p: '4',
-      rounded: 'lg',
+      rounded: '1.25rem',
+      _hover: {
+        bg: 'transparent',
+      },
       _expanded: { roundedBottom: 'none' },
     },
     panel: {
+      rounded: '1.25rem',
       px: '6',
       py: '4',
     },

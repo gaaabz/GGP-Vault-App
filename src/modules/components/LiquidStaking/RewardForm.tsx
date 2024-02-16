@@ -18,11 +18,17 @@ interface Props {
 export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token }) => {
   return (
     <>
-      <div className="flex items-center justify-between">
+      <FormLabel htmlFor="stake-avax-form" id="stake-avax" mb="4">
+        <Text color="black" fontSize="18" fontWeight="bold">
+          Tokens received
+        </Text>
+      </FormLabel>
+      <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
+      <div className="mb-2 flex items-center justify-between gap-4">
         <BigNumberInput
           autoFocus
           bnValue={reward}
-          className="mr-2 w-full rounded-xl bg-gray-50 p-2 text-3xl disabled:bg-gray-200"
+          className="h-14 w-full rounded-full bg-white py-2 pl-6 pr-24 text-lg font-bold text-black disabled:bg-white"
           disabled
           max={balance}
           min={BigNumber.from(0)}
@@ -31,12 +37,8 @@ export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token })
         />
         {token === 'GGP' ? <GGPPillUnit title="GGP" value={null} /> : <AVAXPillUnit value={null} />}
       </div>
-      <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
-      <FormLabel htmlFor="stake-avax-form" id="stake-avax" mb="1">
-        <Text color="grey.600">Tokens received</Text>
-      </FormLabel>
       <div className="flex justify-end">
-        <Text color="grey.600" size="xs">
+        <Text color="grey.600" fontWeight="medium" size="xs">
           {`Balance ${displayBN(balance)} ${token}`}
         </Text>
       </div>
