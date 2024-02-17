@@ -396,6 +396,7 @@ export const LiquidStaking: FunctionComponent = () => {
                     <StakeForm
                       amount={amount}
                       balance={balance?.value || parseEther('0')}
+                      header="Amount to deposit"
                       setAmount={setAmount}
                       setReward={setReward}
                       token="GGP"
