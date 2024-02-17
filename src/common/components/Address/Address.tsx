@@ -65,11 +65,13 @@ export const Address: FunctionComponent<PropsWithChildren<AddressProps>> = ({
       <Text
         className="font-black"
         color={textColor}
-        fontSize={{ base: 'sm', md: fontSize }}
+        fontSize={fontSize}
         fontWeight={fontWeight}
         {...props}
       >
-        {truncate ? startLetter + ellipsis + lastLetter : children}
+        <span className="text-sm md:text-base">
+          {truncate ? startLetter + ellipsis + lastLetter : children}
+        </span>
       </Text>
       {Boolean(copyable) && hasIcon && (
         <Box aria-label="copy" as="button" onClick={handleCopy}>
