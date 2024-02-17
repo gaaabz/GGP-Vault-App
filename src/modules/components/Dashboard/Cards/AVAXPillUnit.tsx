@@ -1,8 +1,8 @@
 export function AVAXPillUnit({ value = null }) {
   return (
-    <span className="pointer-events-none flex h-14 w-40 min-w-fit flex-none flex-row items-center justify-between space-x-2 rounded-full bg-black px-6 py-1.5 text-xs text-white">
+    <span className="pointer-events-none flex h-14 w-28 flex-none flex-row items-center justify-between space-x-2 rounded-full bg-black px-4 py-1.5 text-xs text-white md:w-40 md:px-6">
       <svg
-        className="rounded-full bg-white"
+        className="h-6 w-6 rounded-full bg-white md:h-8 md:w-8"
         fill="white"
         height="32"
         viewBox="0 0 19 19"
@@ -16,7 +16,7 @@ export function AVAXPillUnit({ value = null }) {
           fillRule="evenodd"
         />
       </svg>
-      <div className="text-lg font-bold">xGGP</div>
+      <div className="text-base font-bold md:text-lg">xGGP</div>
       {value ? <div>{(Math.round(value * 100) / 100).toFixed(2).replace(/\.?0+$/, '')}</div> : null}
     </span>
   )

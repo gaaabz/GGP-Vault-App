@@ -40,6 +40,7 @@ export const CB = () => {
                 <div style={{ display: 'flex', gap: 12 }}>
                   <Button
                     onClick={openChainModal}
+                    p={{ base: '0.75rem 1rem', md: '0.75rem 1.5rem' }}
                     style={{ display: 'flex', alignItems: 'center' }}
                     type="button"
                     variant="secondary-outline"
@@ -57,12 +58,18 @@ export const CB = () => {
                         )}
                       </div>
                     )}
-                    {chain.name}
+                    <span className="text-xs md:text-base">{chain.name}</span>
                   </Button>
-                  <span className="hidden sm:flex">
-                    <Button onClick={openAccountModal} variant="secondary-outline">
-                      {account.displayName}
-                      {account.displayBalance ? ` (${account.displayBalance})` : ''}
+                  <span className="flex">
+                    <Button
+                      onClick={openAccountModal}
+                      p={{ base: '0.75rem 1rem', md: '0.75rem 1.5rem' }}
+                      variant="secondary-outline"
+                    >
+                      <span className="text-xs md:text-base">{account.displayName}</span>
+                      <span className="text-xs md:text-base">
+                        {account.displayBalance ? ` (${account.displayBalance})` : ''}
+                      </span>
                     </Button>
                   </span>
                 </div>

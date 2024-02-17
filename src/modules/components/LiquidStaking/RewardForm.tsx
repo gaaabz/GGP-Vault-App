@@ -1,7 +1,7 @@
 import { BigNumber } from 'ethers'
 import { FunctionComponent } from 'react'
 
-import { Divider, FormLabel, Text } from '@chakra-ui/react'
+import { FormLabel, Text } from '@chakra-ui/react'
 
 import { AVAXPillUnit } from '../Dashboard/Cards/AVAXPillUnit'
 import { GGPPillUnit } from '../Dashboard/Cards/GGPPillUnit'
@@ -23,12 +23,11 @@ export const RewardForm: FunctionComponent<Props> = ({ balance, reward, token })
           Tokens received
         </Text>
       </FormLabel>
-      <Divider borderColor="grey.300" display={{ base: null, sm: 'none' }} mb="2" mt="2" />
       <div className="mb-2 flex items-center justify-between gap-4">
         <BigNumberInput
           autoFocus
           bnValue={reward}
-          className="h-14 w-full rounded-full bg-white py-2 pl-6 pr-24 text-lg font-bold text-black disabled:bg-white"
+          className="h-14 w-full flex-1 rounded-full bg-white py-2 px-4 text-base font-bold text-black disabled:bg-white md:text-lg"
           disabled
           max={balance}
           min={BigNumber.from(0)}

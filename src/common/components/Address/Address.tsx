@@ -65,7 +65,7 @@ export const Address: FunctionComponent<PropsWithChildren<AddressProps>> = ({
       <Text
         className="font-black"
         color={textColor}
-        fontSize={fontSize}
+        fontSize={{ base: 'sm', md: fontSize }}
         fontWeight={fontWeight}
         {...props}
       >

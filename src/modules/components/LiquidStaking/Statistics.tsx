@@ -10,7 +10,12 @@ export const Statistics: FunctionComponent<Props> = ({ data }) => {
   return (
     <Box className="flex flex-col gap-5">
       {data.map(({ label, value }, index) => (
-        <Box display="flex" flexDir="row" justifyContent="space-between" key={index}>
+        <Box
+          display="grid"
+          gap={{ base: '1rem', md: '96px' }}
+          gridTemplateColumns="repeat(2, minmax(0, 1fr))"
+          key={index}
+        >
           <Text
             alignItems="center"
             as="div"
@@ -18,11 +23,11 @@ export const Statistics: FunctionComponent<Props> = ({ data }) => {
             display="flex"
             flexDir="row"
             fontWeight="400"
-            size="md"
+            size={{ base: 'sm', md: 'md' }}
           >
             {label}
           </Text>
-          <Text as="div" fontWeight="black" size="md">
+          <Text as="div" fontWeight="black" size={{ base: 'sm', md: 'md' }}>
             {value}
           </Text>
         </Box>

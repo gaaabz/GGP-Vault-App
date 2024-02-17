@@ -71,7 +71,7 @@ const generateStatistics = (
         </>
       ),
       value: tokenAddress ? (
-        <Address className="font-black" copyable fontWeight="bold">
+        <Address copyable fontWeight="black">
           {tokenAddress}
         </Address>
       ) : (
@@ -358,7 +358,11 @@ export const LiquidStaking: FunctionComponent = () => {
   return (
     <>
       <Card outer>
-        <Flex justifyContent={'space-between'}>
+        <Flex
+          alignItems={{ base: 'flex-start' }}
+          flexDir={{ base: 'column', md: 'row' }}
+          justifyContent="space-between"
+        >
           <Text className="pb-4 text-[32px] font-black">GGP Vault</Text>
           {swapDirection && (
             <div className="max-[200px] flex justify-center px-2">
@@ -376,7 +380,7 @@ export const LiquidStaking: FunctionComponent = () => {
         <Content>
           <FormControl>
             <Box position="relative">
-              <Card backgroundColor="#F2F2F2" mb="4">
+              <Card backgroundColor="#F2F2F2" mb="4" padding={{ base: '1rem', md: '1.5rem' }}>
                 <Content>
                   {swapDirection ? (
                     <StakeForm
@@ -414,7 +418,7 @@ export const LiquidStaking: FunctionComponent = () => {
                 <SwapIcon size="16px" />
               </Box>
             </Box>
-            <Card backgroundColor="#F2F2F2" mb="4">
+            <Card backgroundColor="#F2F2F2" mb="4" padding={{ base: '1rem', md: '1.5rem' }}>
               <Content>
                 {swapDirection ? (
                   <RewardForm
@@ -435,13 +439,21 @@ export const LiquidStaking: FunctionComponent = () => {
               <Content>
                 <Accordion allowToggle>
                   <AccordionItem>
-                    <AccordionButton data-testid="liquid-staking-accordion-action" p="1rem 1.5rem">
-                      <Text flex="1" fontWeight="black" size="lg" textAlign="left">
+                    <AccordionButton
+                      data-testid="liquid-staking-accordion-action"
+                      p={{ base: '1rem', md: '1rem 1.5rem' }}
+                    >
+                      <Text
+                        flex="1"
+                        fontWeight="black"
+                        size={{ base: 'base', md: 'lg' }}
+                        textAlign="left"
+                      >
                         View liquid staking statistics
                       </Text>
                       <AccordionIcon />
                     </AccordionButton>
-                    <AccordionPanel p="0 1.5rem 1rem 1.5rem">
+                    <AccordionPanel p={{ base: '0 1rem 1rem', md: '0 1.5rem 1rem 1.5rem' }}>
                       <Statistics data={statisticData} />
                     </AccordionPanel>
                   </AccordionItem>

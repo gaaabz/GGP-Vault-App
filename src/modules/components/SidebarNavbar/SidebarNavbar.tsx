@@ -1,8 +1,5 @@
 import { ReactNode, useState } from 'react'
 
-import { FaHammer } from 'react-icons/fa'
-import { LuArrowDownUp } from 'react-icons/lu'
-
 import { IconDocs } from '../IconDocs'
 import { IconStart } from '../IconStart'
 import { NavBar } from './NavigationBar/NavBar'
@@ -36,19 +33,19 @@ const validateSidebar = [
 ]
 
 const liquidSidebar = [
-  {
-    name: 'Liquid Stake',
-    href: '/liquid-staking/',
-    icon: <LuArrowDownUp color="#fff" size={24} />,
-  },
+  // {
+  //   name: 'Liquid Stake',
+  //   href: '/liquid-staking/',
+  //   icon: <LuArrowDownUp color="#fff" size={24} />,
+  // },
 ]
 
 const gogoSidebar = [
-  {
-    name: 'GoGo Pass',
-    href: '/work-in-progress/',
-    icon: <FaHammer color="#fff" size={24} />,
-  },
+  // {
+  //   name: 'GoGo Pass',
+  //   href: '/work-in-progress/',
+  //   icon: <FaHammer color="#fff" size={24} />,
+  // },
 ]
 
 const sidebarMap: { [key in NavbarItemTitle]: any[] } = {

@@ -6,7 +6,7 @@ import { SidebarNavbar } from '@/modules/components/SidebarNavbar/SidebarNavbar'
 
 const Stake = () => {
   return (
-    <Box className="bg-[#F7F9FF] pt-8" minH="full">
+    <Box className="bg-[#F7F9FF] px-4 py-8" minH="full">
       <PageHead append={false} description="Liquid Staking" name="Liquid Staking" />
       <VStack spacing="8">
         <LiquidStaking />

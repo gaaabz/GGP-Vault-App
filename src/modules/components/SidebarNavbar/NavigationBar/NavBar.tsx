@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
-import { HiBars3BottomLeft } from 'react-icons/hi2'
 
 import { NavbarItemTitle } from '../SidebarNavbar'
 
 import ggpVaultTitle from '/public/assets/img/nav/ggp-vault.svg'
+import HamburgerIcon from '/public/assets/img/nav/hamburger.svg'
 
 import ConnectButton from '@/common/components/ConnectButton'
 
@@ -18,16 +18,16 @@ export const NavBar = ({ navbarTitle, setNavbarTitle, setSidebarOpen }: Props) =
   return (
     <>
       <button
-        className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:hidden"
+        className="px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:hidden md:border-r md:border-gray-200"
         onClick={() => setSidebarOpen(true)}
       >
         <span className="sr-only">Open sidebar</span>
-        <HiBars3BottomLeft aria-hidden="true" className="size-6" />
+        <Image alt="Open Sidebar" src={HamburgerIcon} />
       </button>
 
       <div className="flex flex-1 justify-between pr-4">
         <div className="flex">
-          <div className="hidden w-64 shrink-0 items-center border-r border-r-[#E0E0E0] px-4 sm:flex">
+          <div className="hidden w-64 shrink-0 items-center px-4 sm:flex md:border-r md:border-r-[#E0E0E0]">
             <NextLink href="/" onClick={() => setNavbarTitle('VALIDATE')}>
               <Image alt="GGP Vault" src={ggpVaultTitle} width={189} />
             </NextLink>
