@@ -9,7 +9,6 @@ import CloseIcon from '/public/assets/img/nav/close.svg'
 import ggpVaultTitle from '/public/assets/img/nav/ggp-vault.svg'
 
 import { SideItem } from '../SidebarNavbar'
-import BottomBarLinks from './BottomBarLinks'
 import SidebarItem from './SidebarItem'
 
 type Props = {
@@ -125,9 +124,9 @@ export default function MobileSidebar({
                   ))}
                 </nav>
               </div>
-              <div className="z-10" style={{ padding: '1rem' }}>
+              {/* <div className="z-10" style={{ padding: '1rem' }}>
                 <BottomBarLinks />
-              </div>
+              </div> */}
             </Dialog.Panel>
           </Transition.Child>
           <div aria-hidden="true" className="w-14 shrink-0">

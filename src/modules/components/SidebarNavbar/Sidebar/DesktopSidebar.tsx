@@ -1,5 +1,4 @@
 import { SideItem } from '../SidebarNavbar'
-import BottomBarLinks from './BottomBarLinks'
 import SidebarItem from './SidebarItem'
 
 type Props = {
@@ -20,9 +19,9 @@ export default function DesktopSidebar({ sidebarItems }: Props) {
             ))}
           </nav>
         </div>
-        <div className="z-10" style={{ padding: '1rem' }}>
+        {/* <div className="z-10" style={{ padding: '1rem' }}>
           <BottomBarLinks />
-        </div>
+        </div> */}
       </div>
     </div>
   )
